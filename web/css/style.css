@@ -1,0 +1,22 @@
+*
+{
+    font-family: 'Marvel', sans-serif;
+
+}
+.navbar
+{
+    background-color: grey; 
+}
+footer {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
+#formlogin
+{
+    margin-top: -850px;
+}
+
