@@ -1,7 +1,7 @@
 *
 {
     font-family: 'Marvel', sans-serif;
-
+    font-size: 12pt;
 }
 .navbar
 {
@@ -18,5 +18,24 @@ footer {
 #formlogin
 {
     margin-top: -850px;
+}
+.nologin
+{
+    margin-top: -550px;
+    color: white;
+    font-size: 30pt;
+    background-color: graytext;
+    opacity: 0.8;
+}
+.managerstock
+{
+    background-color: gray;
+    color:white;
+    margin-bottom: 4px;
+}
+.managerstocklabels
+{
+    
+    font-size: 11pt;
 }
 

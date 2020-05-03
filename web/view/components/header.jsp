@@ -11,5 +11,5 @@
         <link href="https://fonts.googleapis.com/css?family=Marvel&display=swap" rel="stylesheet">
 
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <title>JSTORE</title>
+        <title>GLAUDEM</title>
     </head>

@@ -12,7 +12,7 @@
 
     <body>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">JSTORE</a>
+  <a class="navbar-brand" href="#">GLAUDEM</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -36,14 +36,15 @@
     </form>
   </div>
 </nav>
-        <img src="assets/img/banner1.jpg" class="img-fluid" width="100%" alt="Responsive image">
+        <img src="assets/img/banner2.jpg" class="img-fluid" width="100%" alt="Responsive image">
         <div class="container">
      
   <div class="row">
       <div class="col-8">
-          <h1>Bienvenido a JSTORE</h1>
-        
-      Encuentra todo lo que buscas en un solo lugar. Bienvendio a JSTORE, lideres en moda...
+          <h1>Bienvenido a GLAUDEM</h1>
+          <p>
+      Encuentra todo lo que buscas en un solo lugar. Bienvendio a GLAUDEM STORE, lideres en moda. Podrás encontrar una amplia variedad de productos y marcas importadas.
+      </p>
       </div>
     <div class="col-4" id="formlogin">
         <h1>Iniciar Sesion</h1>

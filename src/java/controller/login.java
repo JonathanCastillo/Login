@@ -62,7 +62,7 @@ public class login extends HttpServlet {
         }
         else if (resultado<1)
         {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("view/manager/nologin.jsp").forward(request, response);
             //HttpSession sesion = request.getSession();
             //sesion.invalidate();
         }
