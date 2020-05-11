@@ -21,7 +21,7 @@
              <div class="col-12">
                  <center><h1>MANAGER STOCK</h1></center>
              </div>
-          
+           
           
     <% 
     productosDAO dao=new productosDAO();

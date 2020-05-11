@@ -18,4 +18,5 @@ public interface producto {
     public boolean add (productos pro);
     public boolean edit (productos pro);
     public boolean delete (int id);
+    public List buscar(String busqueda);
 }

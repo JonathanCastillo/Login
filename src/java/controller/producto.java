@@ -84,9 +84,6 @@ public class producto extends HttpServlet {
                             p.setDisponibles(lista.get(5));
                             p.setId_proveedor(Integer.parseInt(lista.get(6)));
                             p.setId_categoria(Integer.parseInt(lista.get(7)));
-                            
-                           
-                            
                             pDAO.add(p);
                             System.out.println("PRODUCTO CARGADO");
                         
@@ -99,8 +96,18 @@ public class producto extends HttpServlet {
                     vista.forward(request, response);
                     //request.getRequestDispatcher("view/master/view_users.jsp").forward(request, response);
                     break;
-                    
-                    
+                    case "Search":
+                             String parametros =request.getParameter("TxtBuscar");
+                             List<productos>list= pDAO.buscar(parametros);
+                             request.setAttribute("datos", list);
+                             //ACTUALIZACION 
+                             request.setAttribute("TxtBuscar", request.getParameter("TxtBuscar"));
+                             //request.getSession().setAttribute("busqueda", request.getParameter("TxtBuscar"));
+                             request.getRequestDispatcher("view/master/productos/ress.jsp").forward(request, response);
+                              
+                             System.out.println("Busqueda realizada: "+parametros);
+                    break;
+                  
                 }
                 
         }

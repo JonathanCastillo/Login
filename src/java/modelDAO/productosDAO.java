@@ -121,4 +121,41 @@ public class productosDAO implements producto{
     public boolean delete(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List buscar(String busqueda) {
+            List <productos> list = new ArrayList<>();
+            String query = "SELECT * FROM productos pro INNER JOIN categorias cat ON pro.Id_Categoria=cat.Id_Categoria INNER JOIN proveedores prov ON pro.Id_Proveedor=prov.Id_Proveedor WHERE pro.nombre LIKE '%"+busqueda+"%' OR  cat.Nombre_Categoria LIKE '%"+busqueda+"%'";
+       
+            try 
+        {
+            
+            conect=conexion.getConnection();
+            ps=conect.prepareStatement(query);
+            rs=ps.executeQuery();
+            while (rs.next()) 
+            {
+                System.out.println("LLEGANDO A BUSCAR PRODUCTOS");
+                productos pro = new productos();
+                pro.setId_producto(rs.getInt("pro.Id_Producto"));
+                pro.setCategoria(rs.getString("cat.Nombre_Categoria"));
+                pro.setNombre(rs.getString("pro.Nombre"));
+                pro.setImagen(rs.getString("pro.Imagen"));
+                pro.setDescripcion(rs.getString("pro.Descripcion"));
+                pro.setPrecio_venta(rs.getFloat("pro.Precio_Venta"));
+                pro.setDisponibles(rs.getString("pro.Disponibles"));
+                pro.setStock(rs.getInt("pro.Stock"));
+                pro.setEmpresa(rs.getString("prov.Empresa"));
+                //System.out.println(rs.getString("Nombres"));
+                list.add(pro);
+            }
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("ERROR:" +e);
+        }
+        return list;
+        
+        
+    }
 }
