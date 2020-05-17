@@ -18,8 +18,9 @@
         <jsp:include page="view/components/menu_admin.jsp"/>  
 <div class="container">
          <div class="row">
-             <div class="col-12">
-                 <center><h1>MANAGER STOCK</h1></center>
+             <div class="col-12 badge badge-light">
+                 <span class="badge badge-light"><h4>MANAGER STOCK</h4></span>
+                  
              </div>
            
           
@@ -43,11 +44,18 @@
         <h5 class="card-title"><%= pro.getNombre()%></h5>
     </div>
     <div class="card-body">
+
     <p class="card-text">Descripcion: <%= pro.getDescripcion()%></p>
     <p class="badge badge-warning managerstocklabels">Categoria: <%= pro.getCategoria()%></p>
     <p class="badge badge-dark managerstocklabels">Marca: <%= pro.getEmpresa()%></p>
     <p class="badge badge-success managerstocklabels">Precio: $<%= pro.getPrecio_venta()%></p>
-   
+    <div>
+        <a href="products?accion=edit&idp=<%= pro.getId_producto()%>"><img src="./assets/icons/pencil-square.svg" alt="" width="22px" height="22px" title="Editar" class="icons" ></a>
+        <a href="user?accion=listar"><img src="./assets/icons/trash.svg" alt="" width="22px" height="22px" title="Eliminar" class="icons"></a>
+        <a class="iconos" href="/"><i class="material-icons">create</i></a>
+        
+    </div>
+    
     </div>
     </div>
     </div>

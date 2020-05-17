@@ -68,7 +68,38 @@ public class productosDAO implements producto{
 
     @Override
     public productos list(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String query="SELECT cat.Nombre_Categoria,\n" +
+        "prov.Empresa,pro.Id_Producto, pro.Nombre,pro.Precio_Venta, pro.Descripcion, pro.Imagen, pro.Disponibles, pro.Stock  FROM productos pro  INNER JOIN proveedores prov ON pro.Id_Proveedor=prov.Id_Proveedor INNER JOIN categorias cat ON pro.Id_Categoria=cat.Id_Categoria WHERE pro.Id_Producto="+id;
+        try 
+        {
+            
+            conect=conexion.getConnection();
+            ps=conect.prepareStatement(query);
+            rs=ps.executeQuery();
+            while (rs.next()) 
+            {
+                System.out.println("LLEGANDO A LISTAR PRODUCTOS");
+                pro.setId_producto(rs.getInt("pro.Id_Producto"));
+                pro.setCategoria(rs.getString("cat.Nombre_Categoria"));
+                pro.setNombre(rs.getString("pro.Nombre"));
+                pro.setImagen(rs.getString("pro.Imagen"));
+                pro.setDescripcion(rs.getString("pro.Descripcion"));
+                pro.setPrecio_compra(rs.getFloat("pro.Precio_Compra"));
+                pro.setPrecio_venta(rs.getFloat("pro.Precio_Venta"));
+                pro.setDisponibles(rs.getString("pro.Disponibles"));
+                pro.setStock(rs.getInt("pro.Stock"));
+                pro.setEmpresa(rs.getString("prov.Empresa"));
+                //System.out.println(rs.getString("Nombres"));
+                //list.add(pro);
+                System.out.println("DATOS OBTENIDOS DE METODO EDITAR PRODUCTOS" +rs.getString("pro.Nombre"));
+                System.out.println("DATOS OBTENIDOS DE METODO EDITAR PRODUCTOSDAO" +pro.getNombre());
+            }
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("ERROR:" +e);
+        }
+        return pro;
     }
 
     @Override

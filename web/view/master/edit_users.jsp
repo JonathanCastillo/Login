@@ -36,7 +36,7 @@
           <h1>Editar usuario</h1> 
           <form action="user" class="col-8">
                 <div class="form-group">
-                    <label for="idusuario">Id</label>
+                    <label for="idusuario">Codigo de producto</label>
                     <input type="hidden" class="form-control" id="idusuario" name="idusuario" value="<%=us.getId_usuario() %>">
                    
                 </div>

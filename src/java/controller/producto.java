@@ -39,7 +39,25 @@ public class producto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String accion=request.getParameter("accion");
+       
+                
+        }
+    
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //processRequest(request, response);
+         String accion=request.getParameter("accion");
         productos p = new productos();
         productosDAO pDAO = new productosDAO();
         System.out.println("LLEGANDO A CONTROLADOR PRODUCTO: "+accion);
@@ -55,6 +73,14 @@ public class producto extends HttpServlet {
               case "view":
                 {
                     RequestDispatcher vista = request.getRequestDispatcher("view/master/productos/view_products.jsp");
+                    vista.forward(request, response);
+                    //request.getRequestDispatcher("view/master/view_users.jsp").forward(request, response);
+                    break;
+                }
+                      case "edit":
+                {
+                    request.setAttribute("idp", request.getParameter("idp"));
+                    RequestDispatcher vista = request.getRequestDispatcher("view/master/productos/edit_products.jsp");
                     vista.forward(request, response);
                     //request.getRequestDispatcher("view/master/view_users.jsp").forward(request, response);
                     break;
@@ -109,23 +135,6 @@ public class producto extends HttpServlet {
                     break;
                   
                 }
-                
-        }
-    
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**
