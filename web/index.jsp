@@ -51,7 +51,7 @@
         <form action="login" method="POST">
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
@@ -59,7 +59,7 @@
     <input type="password" class="form-control" name="pass" id="pass">
   </div>
  
-   <input name="accion" value="Entrar" type="submit" id="accion" class="btn btn-danger btn-block">
+   <input name="accion" value="Entrar" type="submit" id="accion" class="btn btn-danger btn-block" required>
   <button type="submit" class="btn btn-primary btn-block">Registrarme</button>
 </form>
     </div>

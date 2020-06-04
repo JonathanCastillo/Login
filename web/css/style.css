@@ -3,6 +3,18 @@
     font-family: 'Marvel', sans-serif;
     font-size: 12pt;
 }
+#navicons
+{
+    margin-top: 3px;
+}
+#cartlbl
+{
+    margin-left: -30px;
+}
+#navicons:hover
+{
+    color: white;
+}
 .navbar
 {
     background-color: grey; 

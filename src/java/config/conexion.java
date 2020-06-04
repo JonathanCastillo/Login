@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class conexion {
     //DATOS DE CONEXION A BASE DE DATOS
     private static final String DBUSER="root";
-    private static final String DBPASS="12345";
+    private static final String DBPASS="";
     private static final String DBHOST="localhost";
     private static final String PORT="3306";
     private static final String DBNAME="ctar";

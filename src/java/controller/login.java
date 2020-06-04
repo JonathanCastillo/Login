@@ -59,6 +59,11 @@ public class login extends HttpServlet {
                 request.getRequestDispatcher("vhome.jsp").forward(request, response);
 
             }
+             else if(tipo==3)
+            {
+                request.getRequestDispatcher("chome.jsp").forward(request, response);
+
+            }
         }
         else if (resultado<1)
         {
