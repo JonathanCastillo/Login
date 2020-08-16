@@ -21,7 +21,7 @@
         <title></title>
     </head>
     <body>
-        <jsp:include page="../../components/menu_admin.jsp"/>  
+        <jsp:include page="../../components/menu_client.jsp"/>  
         <div class="container">
          <div class="row">
              <div class="col-12">

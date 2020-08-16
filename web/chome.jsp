@@ -49,7 +49,7 @@
     <p class="badge badge-success managerstocklabels">Precio: $<%= pro.getPrecio_venta()%></p>
     <div>
                
-        <a href="user?accion=listar">
+        <a href="products?accion=addcarrito&id=<%= pro.getId_producto()%>">
             <svg class="bi bi-plus-circle-fill" width="22px" height="22px" viewBox="0 0 16 16" fill="#1F2324" xmlns="http://www.w3.org/2000/svg" title="Agregar al carrito">
   <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4a.5.5 0 0 0-1 0v3.5H4a.5.5 0 0 0 0 1h3.5V12a.5.5 0 0 0 1 0V8.5H12a.5.5 0 0 0 0-1H8.5V4z"/>
 </svg>

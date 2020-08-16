@@ -11,7 +11,7 @@ package model;
  */
 public class productos {
     int id_producto, id_categoria, id_proveedor, stock,estado;
-    float precio_compra, precio_venta;
+    double precio_compra, precio_venta;
     String nombre, imagen, descripcion, disponibles, empresa, categoria;
 
     public String getEmpresa() {
@@ -70,19 +70,19 @@ public class productos {
         this.estado = estado;
     }
 
-    public float getPrecio_compra() {
+    public double getPrecio_compra() {
         return precio_compra;
     }
 
-    public void setPrecio_compra(float precio_compra) {
+    public void setPrecio_compra(double precio_compra) {
         this.precio_compra = precio_compra;
     }
 
-    public float getPrecio_venta() {
+    public double getPrecio_venta() {
         return precio_venta;
     }
 
-    public void setPrecio_venta(float precio_venta) {
+    public void setPrecio_venta(double precio_venta) {
         this.precio_venta = precio_venta;
     }
 

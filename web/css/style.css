@@ -3,6 +3,10 @@
     font-family: 'Marvel', sans-serif;
     font-size: 12pt;
 }
+html {
+    min-height: 100%;
+    position: relative;
+}
 #navicons
 {
     margin-top: 3px;

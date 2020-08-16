@@ -49,7 +49,7 @@ public class productosDAO implements producto{
                 pro.setNombre(rs.getString("pro.Nombre"));
                 pro.setImagen(rs.getString("pro.Imagen"));
                 pro.setDescripcion(rs.getString("pro.Descripcion"));
-                pro.setPrecio_venta(rs.getFloat("pro.Precio_Venta"));
+                pro.setPrecio_venta(rs.getDouble("pro.Precio_Venta"));
                 pro.setDisponibles(rs.getString("pro.Disponibles"));
                 pro.setStock(rs.getInt("pro.Stock"));
                 pro.setEmpresa(rs.getString("prov.Empresa"));
@@ -69,7 +69,7 @@ public class productosDAO implements producto{
     @Override
     public productos list(int id) {
         String query="SELECT cat.Nombre_Categoria,\n" +
-        "prov.Empresa,pro.Id_Producto, pro.Nombre,pro.Precio_Venta, pro.Descripcion, pro.Imagen, pro.Disponibles, pro.Stock  FROM productos pro  INNER JOIN proveedores prov ON pro.Id_Proveedor=prov.Id_Proveedor INNER JOIN categorias cat ON pro.Id_Categoria=cat.Id_Categoria WHERE pro.Id_Producto="+id;
+        "prov.Empresa,pro.Id_Producto, pro.Nombre,pro.Precio_Compra,pro.Precio_Venta, pro.Descripcion, pro.Imagen, pro.Disponibles, pro.Stock  FROM productos pro  INNER JOIN proveedores prov ON pro.Id_Proveedor=prov.Id_Proveedor INNER JOIN categorias cat ON pro.Id_Categoria=cat.Id_Categoria WHERE pro.Id_Producto="+id;
         try 
         {
             
@@ -84,8 +84,8 @@ public class productosDAO implements producto{
                 pro.setNombre(rs.getString("pro.Nombre"));
                 pro.setImagen(rs.getString("pro.Imagen"));
                 pro.setDescripcion(rs.getString("pro.Descripcion"));
-                pro.setPrecio_compra(rs.getFloat("pro.Precio_Compra"));
-                pro.setPrecio_venta(rs.getFloat("pro.Precio_Venta"));
+                pro.setPrecio_compra(rs.getDouble("pro.Precio_Compra"));
+                pro.setPrecio_venta(rs.getDouble("pro.Precio_Venta"));
                 pro.setDisponibles(rs.getString("pro.Disponibles"));
                 pro.setStock(rs.getInt("pro.Stock"));
                 pro.setEmpresa(rs.getString("prov.Empresa"));
@@ -117,8 +117,8 @@ public class productosDAO implements producto{
             ps.setString(2, pro.getNombre());
             ps.setString(3, pro.getImagen());
             ps.setString(4, pro.getDescripcion());
-            ps.setFloat(5, pro.getPrecio_compra());
-            ps.setFloat(6, pro.getPrecio_venta());
+            ps.setDouble(5, pro.getPrecio_compra());
+            ps.setDouble(6, pro.getPrecio_venta());
             ps.setString(7, pro.getDisponibles());
             ps.setInt(8, pro.getStock());
             ps.setInt(9, pro.getId_proveedor());
@@ -173,7 +173,7 @@ public class productosDAO implements producto{
                 pro.setNombre(rs.getString("pro.Nombre"));
                 pro.setImagen(rs.getString("pro.Imagen"));
                 pro.setDescripcion(rs.getString("pro.Descripcion"));
-                pro.setPrecio_venta(rs.getFloat("pro.Precio_Venta"));
+                pro.setPrecio_venta(rs.getDouble("pro.Precio_Venta"));
                 pro.setDisponibles(rs.getString("pro.Disponibles"));
                 pro.setStock(rs.getInt("pro.Stock"));
                 pro.setEmpresa(rs.getString("prov.Empresa"));

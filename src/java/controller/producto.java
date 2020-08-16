@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.carrito;
 import model.productos;
 import modelDAO.productosDAO;
 import org.apache.commons.fileupload.FileItem;
@@ -53,16 +54,56 @@ public class producto extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+        int item;
+        double total=0.0;
+        int cantidad=1;
+        //Final variables
+        List<carrito> listacarrito = new ArrayList<>();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+        //Variables de movimiento
+       
          String accion=request.getParameter("accion");
         productos p = new productos();
         productosDAO pDAO = new productosDAO();
         System.out.println("LLEGANDO A CONTROLADOR PRODUCTO: "+accion);
         
         switch (accion) {
+            case "addcarrito":
+                {
+                    int idpro= Integer.parseInt(request.getParameter("id"));
+                    p = pDAO.list(idpro);
+                    item=item+1;
+                    carrito cart = new carrito();
+                    cart.setItem(item);
+                    cart.setIdproducto(p.getId_producto());
+                    cart.setNombre(p.getNombre());
+                    cart.setDescripcion(p.getDescripcion());
+                    cart.setImagen(p.getImagen());
+                    double precio= p.getPrecio_venta();
+                    cart.setPreciocompra(precio); 
+                    cart.setCantidad(cantidad);
+                    cart.setSubtotal(cantidad*precio);
+                    System.out.println("DATOS DEL CARRITO: "+precio);
+                    listacarrito.add(cart);
+                    request.setAttribute("count", listacarrito.size());
+                    request.getRequestDispatcher("chome.jsp").forward(request, response);
+                    break;
+                }
+            case "carrito":
+                {
+                    total = 0;
+                    for (int i = 0; i < listacarrito.size(); i++) {
+                       total= total+listacarrito.get(i).getSubtotal();
+                    }
+                    request.setAttribute("total", total);
+                    request.setAttribute("carrito", listacarrito);
+                    RequestDispatcher vista = request.getRequestDispatcher("view/shop/carrito.jsp");
+                    vista.forward(request, response);
+                    break;
+                }    
             case "agregar":
                 {
                     RequestDispatcher vista = request.getRequestDispatcher("view/master/productos/add_products.jsp");
@@ -115,7 +156,7 @@ public class producto extends HttpServlet {
                         
                     } catch (Exception e) 
                     {
-                    
+                        System.err.println("Error: "+e);
                     
                     }
                     RequestDispatcher vista = request.getRequestDispatcher("view/master/productos/add_products.jsp");

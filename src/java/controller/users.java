@@ -161,6 +161,11 @@ public class users extends HttpServlet {
                     System.out.println("LLEGANDO A DELETE: " +id);
                     break;
                 }
+            case "chome":
+                {
+                     RequestDispatcher vista = request.getRequestDispatcher("chome.jsp");
+                     vista.forward(request, response);
+                }   
           
             default:
                 break;
